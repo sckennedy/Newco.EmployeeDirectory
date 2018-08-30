@@ -26,20 +26,25 @@ else
                         <div class="col-6">
                             @if (Model.PhoneNumber.ToLowerInvariant() != "not found")
                             {
-                                <h6>@Model.PhoneNumber</h6>
-                                <p>Work</p>
+                                <h6 title="Work"><i class="fas fa-phone fa-2x"></i> @Model.PhoneNumber</h6>
                             }
+                            <br />
                             <h6>Location</h6>
                             <p class="card-text">@Model.Building<br />@Model.Street<br />@Model.City<br />@Model.PostCode<br />@Model.Country</p>
                         </div>
                         <div class="col-6">
                             @if (Model.MobilePhoneNumber.ToLowerInvariant() != "not found")
                             {
-                                <h6>@Model.MobilePhoneNumber</h6>
-                                <p>Mobile</p>
+                                <h6 title="Mobile"><i class="fas fa-mobile-alt fa-2x"></i> @Model.MobilePhoneNumber</h6>
                             }
-                            <h6>Manager</h6> 
+                            <br/>
+                            <h6>Manager</h6>
                             <a href="Home/GetEmployeeDetails" data-id="@Model.Manager" class="employeeLink">@Model.Manager</a><br />
+                            <br/>
+                            <a href="mailto:@Model.Email" title="Email @Model.Email"><i class="fas fa-envelope fa-3x"></i></a>
+                            <a href="xmpp:@Model.Email" title="Start a Jabber conversation">
+                                <img src="img/xmpp.png" alt="jabber" class="jabberImage"/>
+                            </a>
                         </div>
                     </div>
                 </div>

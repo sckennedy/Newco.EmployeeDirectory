@@ -30,3 +30,9 @@ footer {
 #SearchTerm {
     width: 20em;
 }
+
+.jabberImage {
+    max-width: 55px;
+    margin-left: 10px;
+    padding-bottom: 21px;
+}

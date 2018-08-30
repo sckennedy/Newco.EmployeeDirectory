@@ -1,0 +1,49 @@
+﻿@model Newco.EmployeeDirectory.Web.Models.Home.EmployeeDetail
+
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+@if (string.IsNullOrEmpty(Model.Id))
+{
+    <p>No results</p>
+}
+else
+{
+    var imageFileName = Model.Id + ".jpg";
+<br/>
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-3">
+                    <img class="card-img-top employee-card img-fluid" src="/img/@imageFileName" alt="@Model.Id">
+                </div>
+                <div class="col-9">
+                    <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@Model.JobTitle</h6>
+                    <br />
+                    <div class="row">
+                        <div class="col-6">
+                            @if (Model.PhoneNumber.ToLowerInvariant() != "not found")
+                            {
+                                <h6>@Model.PhoneNumber</h6>
+                                <p>Work</p>
+                            }
+                            <h6>Location</h6>
+                            <p class="card-text">@Model.Building<br />@Model.Street<br />@Model.City<br />@Model.PostCode<br />@Model.Country</p>
+                        </div>
+                        <div class="col-6">
+                            @if (Model.MobilePhoneNumber.ToLowerInvariant() != "not found")
+                            {
+                                <h6>@Model.MobilePhoneNumber</h6>
+                                <p>Mobile</p>
+                            }
+                            <h6>Manager</h6> 
+                            <a href="Home/GetEmployeeDetails" data-id="@Model.Manager" class="employeeLink">@Model.Manager</a><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

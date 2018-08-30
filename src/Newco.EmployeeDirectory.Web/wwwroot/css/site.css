@@ -1,0 +1,32 @@
+﻿/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-top: 15px;
+}
+
+img.employee-card {
+    display: block;
+    float: left;
+    padding: 5px;
+    max-width: 200px;
+}
+
+img.employee-table {
+    display: block;
+    float: left;
+    padding: 5px;
+    max-width: 100px;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: white
+}
+
+#SearchTerm {
+    width: 20em;
+}

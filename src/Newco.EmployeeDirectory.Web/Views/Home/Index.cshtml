@@ -1,0 +1,13 @@
+﻿@model Newco.EmployeeDirectory.Web.Models.Home.SearchModel
+
+@{
+    ViewData["Title"] = "Employee Directory Search";
+}
+    <form class="form-inline my-2 my-lg-0 justify-content-center" asp-action="Search" asp-controller="Home" method="post">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" asp-for="SearchTerm">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="EmployeeSearch">Search</button>
+    </form>
+
+<div id="SearchResultsTable">
+</div>
+<!-- Javascript for ajax call back is in the site.js file-->

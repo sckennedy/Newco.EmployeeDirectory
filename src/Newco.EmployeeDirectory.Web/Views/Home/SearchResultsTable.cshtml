@@ -1,0 +1,28 @@
+﻿@model Newco.EmployeeDirectory.Web.Models.Home.SearchResultsModel
+
+@if (Model.Results.Count == 0)
+{
+    <br/>
+    <p>No results found</p>
+}
+else
+{
+    <br/>
+    <table class="table">
+        @foreach (var e in Model.Results)
+        {
+            var imageFilename = e.Id + ".jpg";
+            <tr>
+                <td>
+                    <a href="Home/GetEmployeeDetails" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid" src="/img/@imageFilename" alt="@e.Id"></a>
+                </td>
+                <td><a href="Home/GetEmployeeDetails" data-id="@e.Id" class="employeeLink">@e.FirstName @e.LastName</a><br /></td>
+                <td>@e.PhoneNumber<td>
+                <td>@e.Country</td>
+            </tr>
+            
+        }
+    </table>
+    <br/>
+        
+}

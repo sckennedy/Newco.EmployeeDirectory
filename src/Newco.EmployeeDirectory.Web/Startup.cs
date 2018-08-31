@@ -41,7 +41,7 @@ namespace Newco.EmployeeDirectory.Web
             services.AddScoped<IViewRenderService, ViewRenderService>();
             services.AddProgressiveWebApp(new PwaOptions
             {
-                CacheId = "Worker_Number4",
+                CacheId = "Worker_Version5",
                 Strategy = ServiceWorkerStrategy.NetworkFirst,
                 RoutesToPreCache = "/Home/Index",
                 OfflineRoute = "offline.html"

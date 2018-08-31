@@ -35,6 +35,7 @@ function GetEmployeeDetail(username) {
         { id: username },
         function (data) {
             $("#SearchResultsContainer").html(data);
+            $("#SearchTerm").val(username);
         });
 }
 

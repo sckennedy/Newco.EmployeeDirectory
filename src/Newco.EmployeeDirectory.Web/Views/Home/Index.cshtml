@@ -3,11 +3,22 @@
 @{
     ViewData["Title"] = "Employee Directory Search";
 }
-    <form class="form-inline my-2 my-lg-0 justify-content-center" asp-action="Search" asp-controller="Home" method="post">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" asp-for="SearchTerm">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="EmployeeSearch">Search</button>
-    </form>
 
-<div id="SearchResultsTable">
+<div class="col-md-12">
+    <form asp-action="Search" asp-controller="Home" method="post" class="justify-content-center">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-8">
+                    <input class="form-control" type="text" placeholder="Search" asp-for="SearchTerm">
+                </div>
+                <div class="col-4 col-sm-2">
+                    <button class="btn btn-outline-success" type="submit" id="EmployeeSearch"><i class="fa fa-search"></i> Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
-<!-- Javascript for ajax call back is in the site.js file-->
+
+    <div id="SearchResultsContainer">
+    </div>
+    <!-- Javascript for ajax call back is in the site.js file-->

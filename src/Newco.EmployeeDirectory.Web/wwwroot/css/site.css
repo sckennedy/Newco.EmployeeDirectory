@@ -15,7 +15,7 @@ img.employee-table {
     display: block;
     float: left;
     padding: 5px;
-    max-width: 100px;
+    max-width: 75px;
 }
 
 footer {
@@ -27,12 +27,16 @@ footer {
     background-color: white
 }
 
-#SearchTerm {
-    width: 20em;
-}
-
 .jabberImage {
     max-width: 55px;
     margin-left: 10px;
     padding-bottom: 21px;
+}
+.search-table {
+    width: 75%;
+    margin: 0px auto;
+}
+
+#SearchResultsTable tr:hover {
+    cursor: pointer;
 }

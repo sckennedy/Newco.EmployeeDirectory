@@ -8,21 +8,22 @@
 else
 {
     <br/>
-    <table class="table">
-        @foreach (var e in Model.Results)
-        {
-            var imageFilename = e.Id + ".jpg";
-            <tr>
-                <td>
-                    <a href="Home/GetEmployeeDetails" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid" src="/img/@imageFilename" alt="@e.Id"></a>
-                </td>
-                <td><a href="Home/GetEmployeeDetails" data-id="@e.Id" class="employeeLink">@e.FirstName @e.LastName</a><br /></td>
-                <td>@e.PhoneNumber<td>
-                <td>@e.Country</td>
-            </tr>
-            
-        }
-    </table>
+        <table class="table table-hover table-sm search-table" id="SearchResultsTable">
+            @foreach (var e in Model.Results)
+            {
+                var imageFilename = e.Id + ".jpg";
+                <tr>
+                    <td>
+                        <a href="#" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid img-thumbnail" src="/img/@imageFilename" alt="@e.Id"></a>
+                    </td>
+                    <td>
+                        <h6>@e.FirstName @e.LastName</h6>
+                        @e.PhoneNumber<br />
+                        @e.Country
+                    </td>
+                </tr>
+            }
+        </table>
     <br/>
         
 }

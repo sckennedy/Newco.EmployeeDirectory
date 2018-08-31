@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newco.EmployeeDirectory.Core.Implementation.Services;
 using Newco.EmployeeDirectory.Core.Interfaces;
+using WebEssentials.AspNetCore.Pwa;
 
 namespace Newco.EmployeeDirectory.Web
 {
@@ -38,7 +39,13 @@ namespace Newco.EmployeeDirectory.Web
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddHttpContextAccessor();
             services.AddScoped<IViewRenderService, ViewRenderService>();
-            services.AddProgressiveWebApp();
+            services.AddProgressiveWebApp(new PwaOptions
+            {
+                CacheId = "Worker2",
+                Strategy = ServiceWorkerStrategy.CacheFirst,
+                RoutesToPreCache = "/Home/Index",
+                OfflineRoute = "offline.html"
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

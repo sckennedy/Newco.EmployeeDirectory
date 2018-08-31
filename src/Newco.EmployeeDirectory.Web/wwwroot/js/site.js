@@ -18,25 +18,37 @@ $(document).ready(function() {
             e.preventDefault();
             var term = $("#SearchTerm").val();
 
-            $("#SearchResultsTable").html('');
+            $("#SearchResultsContainer").html('');
 
             if (!term) {
                 return;
             }
 
             $.post("Home/Search", { searchTerm: term}, function (data) {
-                $("#SearchResultsTable").html(data);
+                $("#SearchResultsContainer").html(data);
             });
         });
 });
 
-$(document).on('click','.employeeLink',function(e) {
-        e.preventDefault();
-        var username = e.currentTarget.dataset.id;
+function GetEmployeeDetail(username) {
+    $.post("Home/GetEmployeeDetails",
+        { id: username },
+        function (data) {
+            $("#SearchResultsContainer").html(data);
+        });
+}
 
-        $.post("Home/GetEmployeeDetails",
-            { id: username },
-            function(data) {
-                $("#SearchResultsTable").html(data);
-            });
-    });
+$(document).on('click','.employeeLink',function(e) {
+    e.preventDefault();
+    var username = e.currentTarget.dataset.id;
+    if (username) {
+        GetEmployeeDetail(username);
+    }
+});
+
+$(document).on('click', '#SearchResultsTable tr', function (e) {
+    var username = $(this).find("a").data("id");
+    if (username) {
+        GetEmployeeDetail(username);
+    }
+});

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using Newco.EmployeeDirectory.Core.Entities;
 
 namespace Newco.EmployeeDirectory.Web.Models.Home
@@ -22,6 +23,7 @@ namespace Newco.EmployeeDirectory.Web.Models.Home
         public string State { get; set; }
         public string PostCode { get; set; }
         public string Country { get; set; }
+        public List<SearchResult> DirectReports { get; set; }
 
         public static EmployeeDetail FromEmployeeObject(Employee e)
         {
@@ -42,7 +44,8 @@ namespace Newco.EmployeeDirectory.Web.Models.Home
                 City = e.City,
                 State = e.State,
                 PostCode = e.PostCode,
-                Country = e.Country
+                Country = e.Country,
+                DirectReports = new List<SearchResult>()
             };
         }
 

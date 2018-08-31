@@ -24,19 +24,13 @@ else
                     <br />
                     <div class="row">
                         <div class="col-6">
-                            @if (Model.PhoneNumber.ToLowerInvariant() != "not found")
-                            {
-                                <h6 title="Work"><i class="fas fa-phone fa-2x"></i> @Model.PhoneNumber</h6>
-                            }
+                            <h6 title="Work"><i class="fas fa-phone fa-2x"></i> @Model.PhoneNumber</h6>
                             <br />
                             <h6>Location</h6>
                             <p class="card-text">@Model.Building<br />@Model.Street<br />@Model.City<br />@Model.PostCode<br />@Model.Country</p>
                         </div>
                         <div class="col-6">
-                            @if (Model.MobilePhoneNumber.ToLowerInvariant() != "not found")
-                            {
-                                <h6 title="Mobile"><i class="fas fa-mobile-alt fa-2x"></i> @Model.MobilePhoneNumber</h6>
-                            }
+                            <h6 title="Mobile"><i class="fas fa-mobile-alt fa-2x"></i> @Model.MobilePhoneNumber</h6>
                             <br/>
                             <h6>Manager</h6>
                             <a href="Home/GetEmployeeDetails" data-id="@Model.Manager" class="employeeLink">@Model.Manager</a><br />
@@ -51,4 +45,33 @@ else
             </div>
         </div>
     </div>
+    <br/>
+    if (Model.DirectReports.Count == 0)
+     {
+         <br/>
+         <p>No direct reports found</p>
+     }
+     else
+     {
+         <h5>Direct Reports</h5>
+         <br/>
+         <table class="table table-hover table-sm search-table" id="SearchResultsTable">
+             @foreach (var e in Model.DirectReports)
+             {
+                 var imageFilename = e.Id + ".jpg";
+                 <tr>
+                     <td>
+                         <a href="#" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid img-thumbnail" src="/img/@imageFilename" alt="@e.Id"></a>
+                     </td>
+                     <td>
+                         <h6>@e.FirstName @e.LastName</h6>
+                         @e.PhoneNumber<br />
+                         @e.Country
+                     </td>
+                 </tr>
+             }
+         </table>
+         <br/>
+        
+     }
 }

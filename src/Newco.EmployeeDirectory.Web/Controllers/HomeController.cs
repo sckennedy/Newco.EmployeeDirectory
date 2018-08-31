@@ -75,8 +75,27 @@ namespace Newco.EmployeeDirectory.Web.Controllers
             }
             else
             {
-                var result = await _viewRenderService.RenderViewToStringAsync("Home/EmployeeDetail",
-                    EmployeeDetail.FromEmployeeObject(employee));
+                var model = EmployeeDetail.FromEmployeeObject(employee);
+                var directReports = _context.Employees.Where(x => x.Manager == employee.Id).ToList();
+
+                if (directReports.Any())
+                {
+                    foreach (var report in directReports)
+                    {
+                        var directReport = new SearchResult
+                        {
+                            FirstName = report.FirstName,
+                            LastName = report.LastName,
+                            PhoneNumber = report.PhoneNumber,
+                            Country = report.Country,
+                            Id = report.Id
+                        };
+                        model.DirectReports.Add(directReport);
+                    }
+                }
+
+                var result = await _viewRenderService.RenderViewToStringAsync("Home/EmployeeDetail", model);
+
                 return Content(result);
             }
         }

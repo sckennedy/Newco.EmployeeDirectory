@@ -1,7 +1,7 @@
 {
   "name": "NewCo Employee Directory",
   "short_name": "NewCo",
-  "orientation": "portrait",
+  "orientation": "any",
   "description": "New company employee directory and intranet",
   "display": "standalone",
   "icons": [

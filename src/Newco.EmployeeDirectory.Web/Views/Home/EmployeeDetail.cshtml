@@ -16,7 +16,7 @@ else
         <div class="card-body">
             <div class="row">
                 <div class="col-3">
-                    <img class="card-img-top employee-card img-fluid img-thumbnail" src="/img/@imageFileName" alt="@Model.Id">
+                    <img class="card-img-top employee-card img-fluid img-thumbnail" src="/img/@imageFileName" alt="@Model.Id" onerror="this.onerror = null; this.src = '/img/not_found.jpg';">
                 </div>
                 <div class="col-9">
                     <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
@@ -61,7 +61,7 @@ else
                  var imageFilename = e.Id + ".jpg";
                  <tr>
                      <td>
-                         <a href="#" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid img-thumbnail" src="/img/@imageFilename" alt="@e.Id"></a>
+                         <a href="#" data-id="@e.Id" class="employeeLink"><img class="card-img-top employee-table img-fluid img-thumbnail" src="/img/@imageFilename" alt="@e.Id" onerror="this.onerror = null; this.src = '/img/not_found.jpg';"></a>
                      </td>
                      <td>
                          <h6>@e.FirstName @e.LastName</h6>
